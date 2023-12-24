@@ -5,10 +5,18 @@
  */
 'use strict';
 
+const http = require('http');
 const { assert, sinon } = require('@sinonjs/referee-sinon');
 const { mochify } = require('@mochify/mochify');
 
 describe('webdriver', () => {
+  before(async function () {
+    const selenium_running = await pingSelenium();
+    if (!process.env.CI && !selenium_running) {
+      this.skip();
+    }
+  });
+
   it('runs test with plugin', async () => {
     sinon.replace(process.stdout, 'write', sinon.fake());
 
@@ -28,3 +36,24 @@ describe('webdriver', () => {
     assert.equals(json.tests[0].fullTitle, 'test passes');
   });
 });
+
+function pingSelenium() {
+  return new Promise((resolve, reject) => {
+    http
+      .get('http://localhost:4444/wd/hub/status', (res) => {
+        res.on('data', () => {}); // consume request body
+        if (res.statusCode !== 200) {
+          reject(
+            new Error(
+              `Received unexpected ${res.statusCode} response from "/wd/hub/status"`
+            )
+          );
+          return;
+        }
+        resolve(true);
+      })
+      .on('error', () => {
+        resolve(false);
+      });
+  });
+}
