@@ -1,6 +1,6 @@
 {
   "name": "@mochify/driver-webdriver",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "WebDriver driver for Mochify",
   "homepage": "https://github.com/mochify-js/driver-webdriver",
   "main": "index.js",
