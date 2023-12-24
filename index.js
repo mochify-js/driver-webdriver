@@ -4,7 +4,7 @@
 const { WebDriver } = require('webdriver');
 
 /**
- * @typedef {import('../mochify').MochifyDriver} MochifyDriver
+ * @typedef {import('@mochify/mochify').MochifyDriver} MochifyDriver
  */
 
 exports.mochifyDriver = mochifyDriver;
