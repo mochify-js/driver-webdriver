@@ -38,7 +38,7 @@
     "ignore": "node_modules/**"
   },
   "dependencies": {
-    "webdriver": "^9.20.0"
+    "webdriver": "^9.21.0"
   },
   "peerDependencies": {
     "@mochify/mochify": "^1.0.1"
