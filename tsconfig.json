@@ -1,9 +1,17 @@
 {
-  "extends": "@studio/tsconfig",
   "compilerOptions": {
-    "types": ["node"],
-    "lib": ["dom"],
-    "esModuleInterop": true
+    "lib": ["es2022", "dom"],
+    "target": "es2022",
+    "moduleResolution": "nodenext",
+    "module": "nodenext",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "types": ["node"]
   },
   "include": ["**/*.js"],
   "exclude": ["node_modules", "test", "coverage"]

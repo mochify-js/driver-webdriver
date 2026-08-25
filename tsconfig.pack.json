@@ -1,9 +1,6 @@
 {
-  "extends": "@studio/tsconfig",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "types": ["node"],
-    "lib": ["dom"],
-    "esModuleInterop": true,
     "declaration": true,
     "noEmit": false,
     "emitDeclarationOnly": true
